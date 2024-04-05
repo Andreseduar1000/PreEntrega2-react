@@ -4,7 +4,7 @@ export const ItemDetail = ( {description, price, stock, name, img} ) => {
 
   const onAdd = (items) => { 
     alert(`Se agregaron ${items} al carrito`)
- }
+}
 
   return (
     <div className="border m-2">

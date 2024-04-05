@@ -4,7 +4,7 @@ import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 export const ItemListContainer = ({ greeting }) => {
-  const { category } = useParams();
+  const { category} = useParams();
 
   const [products, setProducts] = useState([]);
   
@@ -12,16 +12,16 @@ export const ItemListContainer = ({ greeting }) => {
 
 
   useEffect(() => {
-
     setIsLoading(true);
     getProducts()
       .then((resp) => {
+        if (category) {
+          console.log(products)
+          const productsFilterByCategory = resp.filter(
+            (product) => product.category === category
+          );
+        setProducts(productsFilterByCategory);
         
-        if(category) {
-          
-        const productsFilter = resp.filter(product => product.category === category);
-        
-        setProducts(productsFilter);
           
         setIsLoading(false);
         
@@ -31,7 +31,6 @@ export const ItemListContainer = ({ greeting }) => {
         setIsLoading(false);
           
         }
- 
       })
       .catch((error) => console.log(error));
   }, [category]); 
@@ -42,6 +41,7 @@ export const ItemListContainer = ({ greeting }) => {
       <div> {greeting} </div>
       {}
       { isLoading ? <h2>Cargando productos ..</h2> : <ItemList products={products} /> }
+
     </>
   );
 };

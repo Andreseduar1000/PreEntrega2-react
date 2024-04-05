@@ -1,4 +1,4 @@
-import { ItemDetailContainer, ItemListContainer, NavBar } from "./components";
+import { ItemCount, ItemDetail, ItemDetailContainer, ItemListContainer, NavBar} from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const App = () => {
@@ -9,6 +9,7 @@ export const App = () => {
         <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a mi tienda"} />} />
         <Route path="/category/:category" element={<ItemListContainer greeting={"Bienvenidos a mi tienda"} />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
+        
       </Routes>
     </BrowserRouter>
   );
