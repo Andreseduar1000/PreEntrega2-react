@@ -6,7 +6,7 @@ export const Item = ({ id, name, img, description }) => {
       <div className="card ">
         <div className="card-body ">
           <h5 className="card-title">{name}</h5>
-          <img src={img} alt="" />
+          <img className="rounded mx-auto d-block" src={img} alt="" />
           <p className="card-text"> {description} </p>
           <Link to={`/item/${id}`}>
             <button className="btn btn-outline-success">Detalles</button>
